@@ -1,7 +1,8 @@
 import os
+import ast
 from datetime import datetime
 
-def create_mit_license(project_name, full_name):
+def create_mit_license(full_name):
     current_year = datetime.now().year
     license_text = f"""MIT License
 
@@ -29,74 +30,84 @@ SOFTWARE."""
         license_file.write(license_text)
 
 def create_readme(project_name, description, author, email):
-    readme_content = f"""\\documentclass{{article}}
-\\usepackage{{hyperref}}
+    readme_content = f"""# {project_name}
 
-\\title{{{project_name}}}
-\\author{{{author}}}
-
-\\begin{{document}}
-
-\\maketitle
-
-\\section{{Description}}
+## Description
 {description}
 
-\\section{{Installation}}
-\\begin{{enumerate}}
-    \\item Clone this repository
-    \\item Install the required dependencies:
-    \\begin{{verbatim}}
-    pip install -r requirements.txt
-    \\end{{verbatim}}
-\\end{{enumerate}}
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-\\section{{Usage}}
+## Installation
+1. Clone this repository
+2. Install the required dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+
+## Usage
 [Provide instructions on how to use your project]
 
-\\section{{Features}}
-\\begin{{itemize}}
-    \\item [List key features of your project]
-    \\item ...
-\\end{{itemize}}
+## Features
+- [List key features of your project]
+- ...
 
-\\section{{Contributing}}
+## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-\\section{{License}}
-This project is licensed under the MIT License - see the \\href{{./LICENSE}}{{LICENSE}} file for details.
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-\\section{{Contact}}
-{author} - \\href{{mailto:{email}}}{{{email}}}
+## Contact
+{author} - {email}
 
 Project Link: [Add your project repository URL here]
 
-\\section{{Acknowledgments}}
-\\begin{{itemize}}
-    \\item [Add any acknowledgments or credits here]
-    \\item ...
-\\end{{itemize}}
-
-\\end{{document}}
+## Acknowledgments
+- [Add any acknowledgments or credits here]
+- ...
 """
 
     with open("README.md", "w") as readme_file:
         readme_file.write(readme_content)
 
+def scan_for_imports(file_path):
+    with open(file_path, 'r') as file:
+        tree = ast.parse(file.read())
+    
+    imports = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            for alias in node.names:
+                imports.add(alias.name.split('.')[0])
+        elif isinstance(node, ast.ImportFrom):
+            if node.level == 0:  # absolute import
+                imports.add(node.module.split('.')[0])
+    
+    return imports
+
 def create_libraries_txt():
-    if not os.path.exists("requirements.txt"):
-        print("Error: requirements.txt not found.")
-        return
-
-    with open("requirements.txt", "r") as req_file:
-        requirements = req_file.readlines()
-
+    all_imports = set()
+    
+    for root, dirs, files in os.walk('.'):
+        for file in files:
+            if file.endswith('.py'):
+                file_path = os.path.join(root, file)
+                all_imports.update(scan_for_imports(file_path))
+    
+    # Remove standard library modules
+    standard_libs = set(['os', 'sys', 'datetime', 'math', 'random', 'time', 'json', 're', 'collections', 'itertools'])
+    third_party_imports = all_imports - standard_libs
+    
     with open("libraries.txt", "w") as lib_file:
         lib_file.write("Project Dependencies:\n\n")
-        for req in requirements:
-            package = req.strip().split('==')[0]
-            version = req.strip().split('==')[1] if '==' in req else 'latest'
-            lib_file.write(f"{package},{version}\n")
+        for lib in sorted(third_party_imports):
+            lib_file.write(f"{lib}\n")
 
 def main():
     project_name = input("Enter your project name: ")
@@ -104,7 +115,7 @@ def main():
     author = input("Enter the author's name: ")
     email = input("Enter the author's email: ")
 
-    create_mit_license(project_name, author)
+    create_mit_license(author)
     create_readme(project_name, description, author, email)
     create_libraries_txt()
 

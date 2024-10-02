@@ -46,7 +46,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-### Harshith M.R
+### Harshith M R
 **Department of Mechanical Engineering**  
 Indian Institute of Technology, Madras  
 Chennai, Tamil Nadu 600036  

@@ -3,17 +3,17 @@ questions = [
     {
         "sno": 0,
         "id": "food_intolerance",
-        "text": "what are all your food intolerances?",
+        "text": "Do you have any food intolerances? If yes, please list them.",
     },
     {
         "sno": 1,
         "id": "diet_preferred",
-        "text": "What is your preferred diet?",
+        "text": "What type of diet do you prefer?",
     },
     {
         "sno": 2,
         "id": "allergies",
-        "text": "What are your allergies currently?",
+        "text": "Do you have any known allergies? If so, could you share them?",
     },
     # {
     #     "sno": 3,

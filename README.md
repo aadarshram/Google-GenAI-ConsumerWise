@@ -1,7 +1,7 @@
 # ConsumerWise
 
 ## Description
-ConsumerWise, a GenAI powered nutrient analysis tool/chatbot that allows users to validate their food choices through informed decisions. The implementation involves an end-to-end chatbot , supported with Context Awareness and API based techniques. We attempt to allow users to scan their food products and obtain some form of nutritional insight through both visual aids as well as in conversation with our NutriBot.
+ConsumerWise, a GenAI powered nutrient analysis tool/chatbot that allows users to validate their food choices through informed decisions. The implementation involves an end-to-end chatbot , supported with Context Awareness and API based techniques
 
 ## Table of Contents
 - [Website](#Website)
@@ -13,7 +13,8 @@ ConsumerWise, a GenAI powered nutrient analysis tool/chatbot that allows users t
 
 
 ## Website
-Link
+Link:
+
 [ConsumerWise](https://sound-aileron-437216-i1.el.r.appspot.com/)
 
 

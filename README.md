@@ -41,6 +41,9 @@ content or suggesting diet alternatives, and visualizing the data to enhance use
 - Integration with User Data: Connecting nutritional recommendations with user habits (e.g., current exercise routine,
 stress level) for a holistic health approach.
 
+## Technical Report and Video Demonstration
+
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 

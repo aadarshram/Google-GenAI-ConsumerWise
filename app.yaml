@@ -1,0 +1,33 @@
+# runtime: python312 # or python310
+# entrypoint: gunicorn -b :$PORT main:app  # Change 'app:app' if your Flask app is structured differently
+
+# instance_class: F2  # Optional: Specifies the machine type
+
+# env_variables:
+#   FLASK_ENV: production  # Set the environment to production
+
+# handlers:
+# - url: /static
+#   static_dir: static  # Serve static files
+
+# - url: /.*
+#   script: auto  # Default behavior to serve dynamic content
+
+runtime: python312
+entrypoint: gunicorn -b :$PORT main:app  # Change 'app:app' if your Flask app is structured differently
+
+instance_class: F2  # Optional: Specifies the machine type
+
+env_variables:
+  CLOUD_SQL_USERNAME: user_root
+  CLOUD_SQL_PASSWORD: consumer
+  CLOUD_SQL_DATABASE_NAME: consumerwise-users-db
+  CLOUD_SQL_CONNECTION_NAME: sound-aileron-437216-i1:asia-south1:consumerwise-db
+  FLASK_ENV: production
+
+handlers:
+- url: /static
+  static_dir: static  # Serve static files
+
+- url: /.*
+  script: auto  # Default behavior to serve dynamic content 

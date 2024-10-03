@@ -43,7 +43,7 @@ stress level) for a holistic health approach.
 
 ## Technical Report and Video Demonstration
 [Video Demo](https://github.com/roovy54/Google-GenAI-ConsumerWise/blob/9216a5a5168e6197f96cca31fc45c24c6321750d/Video_Demo_Genai.webm)
-
+[Report](https://github.com/roovy54/Google-GenAI-ConsumerWise/blob/main/Consumerwise.pdf)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

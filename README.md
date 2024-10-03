@@ -1,7 +1,7 @@
 # ConsumerWise
 
 ## Description
-ConsumerWise, a GenAI powered nutrient analysis tool/chatbot that allows users to validate their food choices through informed decisions. The implementation involves an end-to-end chatbot , supported with Context Awareness and API based techniques. We attempt to allow users to scan their food products and obtain some form of nutritional insight through both visual aids as well as in conversation with our chatbot - NutriBot.
+ConsumerWise is an AI-powered tool designed to help users make informed food choices by providing in-depth nutritional analysis. Through seamless integration of context-aware chatbot interactions and advanced image recognition, users can simply scan food labels to instantly receive detailed dietary insights. Whether exploring visual charts or chatting with NutriBot, users are guided to better understand the nutritional content of their food. Personalization is enhanced through user registration and setup questions, tailoring the experience based on individual dietary preferences, intolerances, and goals.
 
 ## Table of Contents
 - [Website](#Website)
@@ -27,7 +27,14 @@ Link:
 ## Pipeline
 ![image](https://github.com/user-attachments/assets/9d1af74c-e63a-4bbe-9f8d-f76ee105c5a5)
 
-
+## Technology Used
+- Flask Backend: Powers the application logic, complemented by a responsive frontend built with HTML, CSS/Bootstrap, and JavaScript.
+- FastAPI: Serves as a wrapper to handle custom API endpoints, ensuring fast and scalable performance.
+- Google Cloud App Engine: Provides a robust, scalable platform for deploying and running the application seamlessly.
+- Google Cloud SQL: Manages our database infrastructure, offering reliable and secure data storage.
+- GPT-4o MINI & GPT Vision API: AI models for natural language processing and image recognition, enabling NutriBot to analyze food labels and engage in meaningful conversations.
+- Tavily Search API: Enhances search capabilities, offering efficient retrieval of relevant data from various sources.
+  
 ## Features
 - User Readability: The main attempt is to provide nutritional information in a concise manner that is user readable ,
 further assisted by visual aids such as pie-charts and histograms. This is to give the user a starting point.

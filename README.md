@@ -42,7 +42,7 @@ content or suggesting diet alternatives, and visualizing the data to enhance use
 stress level) for a holistic health approach.
 
 ## Technical Report and Video Demonstration
-![video](https://github.com/roovy54/Google-GenAI-ConsumerWise/blob/9216a5a5168e6197f96cca31fc45c24c6321750d/Video_Demo_Genai.webm)
+[Video Demo](https://github.com/roovy54/Google-GenAI-ConsumerWise/blob/9216a5a5168e6197f96cca31fc45c24c6321750d/Video_Demo_Genai.webm)
 
 
 ## License
